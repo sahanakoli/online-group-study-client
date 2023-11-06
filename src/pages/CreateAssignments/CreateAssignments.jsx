@@ -89,7 +89,7 @@ const CreateAssignments = () => {
                         
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-[#B68C5A] btn-block ">Create Assignment</button>
+                        <button className="btn bg-[#B68C5A] btn-block text-white">Create Assignment</button>
                     </div>
                 </form>
             </div>

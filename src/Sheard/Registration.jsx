@@ -96,8 +96,8 @@ const Registration = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6 mb-3">
-                                <input className="btn bg-[#B68C5A] " type="submit" value="Registration" />
-                                <button onClick={handleGoogle}  className="btn font-medium bg-[#B68C5A] mt-4"><ImGoogle className="mr-2 w-4 h-4"></ImGoogle>Google Sign In</button>
+                                <input className="btn bg-[#B68C5A] text-white" type="submit" value="Registration" />
+                                <button onClick={handleGoogle}  className="btn font-medium bg-[#B68C5A] text-white mt-4"><ImGoogle className="mr-2 w-4 h-4"></ImGoogle>Google Sign In</button>
                             </div>
                             <div>
                             <p className='ml-16'>Already have an account? <Link to='/login' className=' text-[#B68C5A]'>Login</Link></p>

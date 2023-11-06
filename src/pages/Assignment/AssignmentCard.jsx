@@ -15,8 +15,8 @@ const AssignmentCard = ({ assignment }) => {
                 <p className="text-lg font-medium">Date: {date}</p>
                 <p className="text-lg font-medium">Level: {level}</p>
                 <div className="card-actions justify-center">
-                        <Link to={`/view/${_id}`}><button className="btn bg-[#B68C5A]">View Assignment</button></Link>
-                        <Link to={`/update/${_id}`}><button className="btn bg-[#B68C5A]">Update Assignment</button></Link>
+                        <Link to={`/view/${_id}`}><button className="btn bg-[#B68C5A] text-white">View Assignment</button></Link>
+                        <Link to={`/updateAssignment/${_id}`}><button className="btn bg-[#B68C5A] text-white">Update Assignment</button></Link>
                     </div>
                 </div>
             </div>

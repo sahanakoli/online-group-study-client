@@ -53,10 +53,10 @@ const handleSignOut = () => {
                     }
                     {
         user ?
-        <button onClick={handleSignOut} className="btn bg-[#B68C5A]">Sign Out</button>
+        <button onClick={handleSignOut} className="btn bg-[#B68C5A] text-white">Sign Out</button>
         :
         <Link to="/login">
-            <button className="btn bg-[#B68C5A]">Login</button>
+            <button className="btn bg-[#B68C5A] text-white">Login</button>
         </Link>
       }
                 </div>

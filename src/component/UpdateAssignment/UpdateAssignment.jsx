@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../../Sheard/Navbar";
+import Swal from "sweetalert2";
 
 
 const UpdateAssignment = () => {
 
     const assignment = useLoaderData();
-    console.log(assignment);
-    const {title,photo,description,marks,date,level} = assignment;
+    const {_id,title,photo,description,marks,date,level} = assignment;
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -22,7 +22,26 @@ const UpdateAssignment = () => {
         const updatedAssignment = {title, description, date, marks,level, photo}
         console.log(updatedAssignment);
 
-        
+         // send data to the server
+         fetch(`http://localhost:5000/assignments/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedAssignment)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Assignment Updated Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  })
+            }
+        })
     }
     return (
         <div>
@@ -71,10 +90,9 @@ const UpdateAssignment = () => {
                                 <option value="hard">Hard</option>
                             </select>
                         </div>
-                        
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-[#B68C5A] btn-block ">Create Assignment</button>
+                        <button className="btn bg-[#B68C5A] text-white">Create Assignment</button>
                     </div>
                 </form>
             </div> 
