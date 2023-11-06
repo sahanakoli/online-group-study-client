@@ -11,6 +11,7 @@ import SubmittedAssignments from "../pages/SubmittedAssignments/SubmittedAssignm
 import MyAssignments from "../pages/MyAssignments/MyAssignments";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import View from "../component/View/View";
+import UpdateAssignment from "../component/UpdateAssignment/UpdateAssignment";
 
 
 
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
         {
           path:'/view/:id',
           element:<View></View>,
+          loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+        },
+        {
+          path:'/updateAssignment/:id',
+          element:<UpdateAssignment></UpdateAssignment>,
           loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
         }
       ]

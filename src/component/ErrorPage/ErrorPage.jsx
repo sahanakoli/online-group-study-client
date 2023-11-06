@@ -2,8 +2,8 @@
 
 const ErrorPage = () => {
     return (
-        <div>
-          <h2 className=" text-2xl text-center">Error Page</h2>  
+        <div className="flex justify-center items-center">
+         <img src="https://i.ibb.co/fxNRrBF/404.jpg" alt="" />  
         </div>
     );
 };
