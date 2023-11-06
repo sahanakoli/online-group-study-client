@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import Navbar from "../../Sheard/Navbar";
 // create assignment implement on first commit
 
@@ -14,7 +15,29 @@ const CreateAssignments = () => {
         const level = form.level.value;
         const photo = form.photo.value;
 
-        console.log(title, description, date, marks,level, photo)
+        const newAssignment = {title, description, date, marks,level, photo}
+        console.log(newAssignment);
+
+        // send data to the server
+        fetch('http://localhost:5000/assignments', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newAssignment)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title:'Success!',
+                    text: 'Create Assignment Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+            }
+        })
     }
     return (
         <div>
