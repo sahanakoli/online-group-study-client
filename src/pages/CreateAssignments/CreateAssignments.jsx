@@ -53,16 +53,17 @@ const CreateAssignments = () => {
                             </label>
                             <input type="text" name="marks" placeholder="Marks" className="input input-bordered" required />
                         </div>
-                        <form className="form-control" >
+                        <div>
                         <label className="label">
                                 <span className="label-text">Level</span>
                             </label>
-                            <select type="text" name="level"  className="input input-bordered">
+                            <select type="text" name="level"  className="input w-full input-bordered">
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
                                 <option value="hard">Hard</option>
                             </select>
-                        </form>
+                        </div>
+                        
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn bg-[#B68C5A] btn-block ">Create Assignment</button>
