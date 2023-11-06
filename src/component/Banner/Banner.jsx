@@ -7,7 +7,7 @@ const Banner = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Online Group Study<br/> Assignment</h1>
+                        <h1 className="mb-5 text-5xl font-bold">Online Group<br/> Study</h1>
                         <p className="mb-5">Enhance your learning with interactive online group study sessions. Collaborate, share, and excel together. </p>
                         <button className="btn bg-[#B68C5A]">Join us now</button>
                     </div>

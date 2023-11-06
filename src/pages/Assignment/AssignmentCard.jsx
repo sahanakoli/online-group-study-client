@@ -9,7 +9,6 @@ const AssignmentCard = ({assignment}) => {
         <div className="mt-8 w-9/12 mx-auto">
             <div className="card w-11/12 mx-auto h-[300px] bg-base-100 shadow-xl">
                 <div className="card-body">
-                    {/* <p>sgdg</p> */}
                     <h2 className="card-title text-xl font-bold">Title: {title}</h2>
                     <p className="text-xl font-semibold">Marks: {marks}</p>
                     <p className="text-lg font-medium">Date: {date}</p>
