@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/submittedAssignments',
-            element:<SubmittedAssignments></SubmittedAssignments>
+            element:<PrivateRoute><SubmittedAssignments></SubmittedAssignments></PrivateRoute>
         },
         {
             path:'/login',
@@ -53,12 +53,12 @@ const router = createBrowserRouter([
         {
           path:'/view/:id',
           element:<PrivateRoute><View></View></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+          loader: ({params}) => fetch(`https://online-group-study-server.vercel.app/assignments/${params.id}`)
         },
         {
           path:'/updateAssignment/:id',
-          element:<UpdateAssignment></UpdateAssignment>,
-          loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
+          element:<PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
+          loader: ({params}) => fetch(`https://online-group-study-server.vercel.app/assignments/${params.id}`)
         }
       ]
     },

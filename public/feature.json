@@ -1,0 +1,32 @@
+[
+    {
+        "id":"1",
+        "features":"Video Conferencing Platforms",
+        "details":"Zoom, Microsoft Teams, Google Meet, and Skype are popular platforms that allow you to create virtual meeting rooms with video and audio capabilities. You can use these platforms for group study sessions."
+    },
+    {
+        "id": "2",
+        "features":"Document Collaboration",
+        "details":"Google Workspace offers Google Docs, Sheets, and Slides, which enable real-time collaborative editing and commenting on documents."
+    },
+    {
+        "id": "3",
+        "features":"Online Learning Platforms",
+        "details":"Platforms like Module, Canvas, and Blackboard are designed for educational purposes and include features for group discussions, file sharing, and collaborative assignments."
+    },
+    {
+        "id": "4",
+        "features":"Task Management",
+        "details":"Allow assignment creators to break down the assignment into tasks or subtasks.Set due dates for tasks to help with time management."
+    },
+    {
+        "id": "5",
+        "features":"Assignment Creation",
+        "details":"Allow users to create  assignments, specifying the title, description, deadline, and study materials.Option to set the assignment as a single assignment."
+    },
+    {
+        "id": "6",
+        "features":"Assignment Details",
+        "details":"Display assignment details, including deadlines, study materials, and group members.Attach study resources like PDFs, documents, links, and videos."
+    }
+]

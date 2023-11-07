@@ -2,6 +2,7 @@ import Faq from "../../Sheard/FAQ";
 import Footer from "../../Sheard/Footer";
 import Navbar from "../../Sheard/Navbar";
 import Banner from "../../component/Banner/Banner";
+import Feature from "../../component/Feature/Feature";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
             <Navbar></Navbar>
             <Banner></Banner>
+            <Feature></Feature>
             <Faq></Faq>
             <Footer></Footer>
         </div>

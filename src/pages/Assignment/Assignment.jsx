@@ -6,13 +6,14 @@ const Assignment = () => {
     const [assignments, setAssignments] = useState([]);
 
     useEffect(() =>{
-        fetch('http://localhost:5000/assignments')
+        fetch('https://online-group-study-server.vercel.app/assignments')
         .then(res => res.json())
         .then(data => setAssignments(data))
     },[])
     const handleValue = (event) =>{
         console.log(event.target.value)
-        assignments.filter()
+        const level = assignments.filter(assign => assign.level !== level);
+        console.log(level);
     }
     return (
         <div>
@@ -29,7 +30,12 @@ const Assignment = () => {
                         </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {
-                assignments.map(assignment =><AssignmentCard key={assignment.id} assignment={assignment}></AssignmentCard>)
+                assignments.map(assignment =><AssignmentCard 
+                key={assignment.id} 
+                assignment={assignment}
+                assignments={assignments}
+                setAssignments={setAssignments}
+                ></AssignmentCard>)
             }
             </div>
         </div>
