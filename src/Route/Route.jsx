@@ -12,6 +12,7 @@ import MyAssignments from "../pages/MyAssignments/MyAssignments";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import View from "../component/View/View";
 import UpdateAssignment from "../component/UpdateAssignment/UpdateAssignment";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/createAssignments',
-            element:<CreateAssignments></CreateAssignments>
+            element:<PrivateRoute><CreateAssignments></CreateAssignments></PrivateRoute>
         },
         {
             path:'/assignments',
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/view/:id',
-          element:<View></View>,
+          element:<PrivateRoute><View></View></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/assignments/${params.id}`)
         },
         {

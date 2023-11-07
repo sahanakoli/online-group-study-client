@@ -1,8 +1,12 @@
 import Swal from "sweetalert2";
 import Navbar from "../../Sheard/Navbar";
-// create assignment implement on first commit
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 
 const CreateAssignments = () => {
+
+    const {user} = useContext(AuthContext);
 
     const handleCreate = e => {
         e.preventDefault();
@@ -11,15 +15,16 @@ const CreateAssignments = () => {
         const title = form.title.value;
         const description = form.description.value;
         const date = form.date.value;
+        const email = form.email.value;
         const marks = form.marks.value;
         const level = form.level.value;
         const photo = form.photo.value;
 
-        const newAssignment = {title, description, date, marks,level, photo}
+        const newAssignment = {title, description, date,email, marks,level, photo}
         console.log(newAssignment);
 
         // send data to the server
-        fetch('http://localhost:5000/assignments', {
+        fetch('http://localhost:5000/createAssignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -66,6 +71,12 @@ const CreateAssignments = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email" name="email" defaultValue={user?.email}  placeholder="Email" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Date</span>
                             </label>
                             <input type="date" name="date" className="input input-bordered" required />
@@ -86,7 +97,6 @@ const CreateAssignments = () => {
                                 <option value="hard">Hard</option>
                             </select>
                         </div>
-                        
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn bg-[#B68C5A] btn-block text-white">Create Assignment</button>
