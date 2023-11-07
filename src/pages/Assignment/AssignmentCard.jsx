@@ -7,39 +7,37 @@ import Swal from "sweetalert2";
 const AssignmentCard = ({ assignment,assignments,setAssignments }) => {
     const { _id,photo, title, marks, date,level } = assignment;
 
-    const handleDelete = _id => {
-        console.log(_id);
-
+    const handleDelete = id => {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
+            title: 'Do you want to delete assignment?',
+            showDenyButton: true,
+            confirmButtonText: 'delete',
+            denyButtonText: `cancel`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                fetch(`https://online-group-study-server.vercel.app/assignments/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.deletedCount > 0){
+                    Swal.fire(
+                        'Deleted Successfully ',
+                        'success'
+                      )
+                      const remaining = assignments.filter(assign => assign._id !== id);
+                      setAssignments(remaining);
+                }
 
-                fetch(`http://localhost:5000/assignments/${_id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your Assignment has been deleted.',
-                                'success'
-                            )
-                            const remaining = assignments.filter(assign => assign._id !== _id);
-                            setAssignments(remaining);
-                        }
-
-                    })
+            })
+              
+            } else if (result.isDenied) {
+              Swal.fire('Assignment not deleted')
             }
-        })
+          })
+        
     }
     return (
         <div className="mt-8 w-9/12 mx-auto">

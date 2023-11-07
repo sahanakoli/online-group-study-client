@@ -12,8 +12,8 @@ const Assignment = () => {
     },[])
     const handleValue = (event) =>{
         console.log(event.target.value)
-        const level = assignments.filter(assign => assign.level !== level);
-        console.log(level);
+        const level = assignments.filter(assign => assign.level == event.target.value);
+        setAssignments(level);
     }
     return (
         <div>
@@ -23,9 +23,9 @@ const Assignment = () => {
                                 <span className="label-text text-xl font-bold">Assignment Level</span>
                             </label>
                             <select onChange={handleValue} type="text" name="level"  className="input w-8/12 input-bordered">
-                                <option value="easy">Easy</option>
-                                <option value="medium">Medium</option>
-                                <option value="hard">Hard</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
                             </select>
                         </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">

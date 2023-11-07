@@ -46,7 +46,7 @@ const UpdateAssignment = () => {
     return (
         <div>
             <Navbar></Navbar>
-           <h2 className=" text-2xl font-bold text-center mt-8">Create Assignments</h2>
+           <h2 className=" text-2xl font-bold text-center mt-8">Update Assignments</h2>
             <div className="bg-base-200 w-11/12 mx-auto mt-4 mb-4 shadow-lg rounded-lg p-24">
                 <form onSubmit={handleUpdate} className="card-body">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -85,14 +85,14 @@ const UpdateAssignment = () => {
                                 <span className="label-text">Level</span>
                             </label>
                             <select type="text" name="level" defaultValue={level}  className="input w-full input-bordered">
-                                <option value="easy">Easy</option>
-                                <option value="medium">Medium</option>
-                                <option value="hard">Hard</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
                             </select>
                         </div>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-[#B68C5A] text-white">Create Assignment</button>
+                        <button className="btn bg-[#B68C5A] text-white">Update Assignment</button>
                     </div>
                 </form>
             </div> 

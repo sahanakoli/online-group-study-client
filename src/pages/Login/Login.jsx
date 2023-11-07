@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from 'sweetalert2';
 import { ImGoogle } from 'react-icons/im'
+import axios from "axios";
 
 
 const Login = () => {
@@ -17,12 +18,19 @@ const Login = () => {
             const form = event.target;
             const email = form.email.value;
             const password = form.password.value;
-            console.log(email,password);
+            
 
             signIn(email,password)
-        .then(result =>{
+            .then(result =>{
             const loggedInUser = result.user;
             console.log(loggedInUser);
+            const user = {email};
+
+            // get access token
+            axios.post('http://localhost:5000/jwt', user)
+            .then(res =>{
+                console.log(res.data);
+            })
             
 
             Swal.fire(
