@@ -18,11 +18,7 @@ const Assignment = () => {
         })
     }, [])
     
-    // useEffect(() =>{
-    //     fetch('https://online-group-study-server.vercel.app/assignments')
-    //     .then(res => res.json())
-    //     .then(data => setAssignments(data))
-    // },[])
+    
     const handleValue = (event) =>{
         event.target.value
         const level = assignments.filter(assign => assign.level == event.target.value);
