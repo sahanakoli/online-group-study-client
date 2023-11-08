@@ -24,7 +24,7 @@ const CreateAssignments = () => {
         console.log(newAssignment);
 
         // send data to the server
-        fetch('https://online-group-study-server.vercel.app/createAssignment', {
+        fetch('https://online-group-study-server.vercel.app/assignments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

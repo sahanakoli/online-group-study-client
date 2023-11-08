@@ -23,12 +23,24 @@ const View = () => {
                             <button className="btn bg-[#B68C5A] text-white" onClick={() => document.getElementById('my_modal_1').showModal()}>Take Assignment</button>
                             <dialog id="my_modal_1" className="modal">
                                 <div className="modal-box">
-                                    <h3 className="font-bold text-lg">Hello!</h3>
-                                    <p className="py-4">Press ESC key or click the button below to close</p>
+                                    <form >
+                                        <div className="form-control">
+                                            <label className="label">
+                                                <span className="label-text">PDF Link</span>
+                                            </label>
+                                            <input type="text" name="link" placeholder="Link" className="input input-bordered" required />
+                                        </div>
+                                        <div className="form-control">
+                                            <label className="label">
+                                                <span className="label-text">TEXT</span>
+                                            </label>
+                                            <input type="text" name="text" placeholder="Text" className="input input-bordered" required />
+                                        </div>
+                                    </form>
                                     <div className="modal-action">
                                         <form method="dialog">
                                             {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn">Close</button>
+                                            <button className="btn">Submit</button>
                                         </form>
                                     </div>
                                 </div>

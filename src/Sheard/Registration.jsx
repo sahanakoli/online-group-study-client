@@ -21,6 +21,14 @@ const Registration = () => {
         const password = form.password.value;
         console.log(name,email,password);
 
+        if(password.length < 6){
+            Swal.fire({
+              icon: 'error',
+              text: 'Password should be at least 6 characters or longer'
+            })
+            return;
+          }
+
         createUser(email, password)
           .then(result =>{
               console.log(result.user)

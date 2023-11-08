@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Sheard/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -11,6 +11,9 @@ const Login = () => {
 
     const {signIn} = useContext(AuthContext);
     const {googleSignIn} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
 
     const handleLogin = event => {
             event.preventDefault();
@@ -19,6 +22,13 @@ const Login = () => {
             const email = form.email.value;
             const password = form.password.value;
             
+            if(password.length < 6){
+                Swal.fire({
+                  icon: 'error',
+                  text: 'Password should be at least 6 characters or longer'
+                })
+                return;
+              }
 
             signIn(email,password)
             .then(result =>{
@@ -27,9 +37,12 @@ const Login = () => {
             const user = {email};
 
             // get access token
-            axios.post('http://localhost:5000/jwt', user)
+            axios.post('https://online-group-study-server.vercel.app/jwt', user, {withCredentials: true})
             .then(res =>{
                 console.log(res.data);
+                if(res.data.success){
+                    navigate(location?.state ? location?.state : '/')
+                }
             })
             
 

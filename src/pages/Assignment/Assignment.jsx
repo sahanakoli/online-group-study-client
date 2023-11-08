@@ -1,17 +1,30 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import Navbar from "../../Sheard/Navbar";
 import AssignmentCard from "./AssignmentCard";
+import axios from "axios";
 
 const Assignment = () => {
     const [assignments, setAssignments] = useState([]);
+    // const [itemPerPage, setItemPerPage] = useState(5);
+    // const numberOfPage = Math.ceil(assignments / itemPerPage);
 
+    // const pages = [...Array(numberOfPage).keys()];
+
+    const url = 'https://online-group-study-server.vercel.app/assignments'
     useEffect(() =>{
-        fetch('https://online-group-study-server.vercel.app/assignments')
-        .then(res => res.json())
-        .then(data => setAssignments(data))
-    },[])
+        axios.get(url, {withCredentials: true})
+        .then(res => {
+            setAssignments(res.data);
+        })
+    }, [])
+    
+    // useEffect(() =>{
+    //     fetch('https://online-group-study-server.vercel.app/assignments')
+    //     .then(res => res.json())
+    //     .then(data => setAssignments(data))
+    // },[])
     const handleValue = (event) =>{
-        console.log(event.target.value)
+        event.target.value
         const level = assignments.filter(assign => assign.level == event.target.value);
         setAssignments(level);
     }
@@ -38,6 +51,11 @@ const Assignment = () => {
                 ></AssignmentCard>)
             }
             </div>
+            {/* <div className="">
+                {
+                    pages.map(page => <button key={page}>{page}</button>)
+                }
+            </div> */}
         </div>
     );
 };
