@@ -52,14 +52,7 @@ const Login = () => {
                 'success'
               )
         })
-        .catch(error =>{
-            console.error(error);
-            (Swal.fire({
-                icon: 'error',
-                text: error.message,
-               
-              }))
-         })
+        .catch(error => console.log(error));
     }
 
     const handleGoogle = () =>{
