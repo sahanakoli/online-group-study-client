@@ -8,3 +8,5 @@
 - They can delete only their own created assignment. 
 - They must be login in to access create assignment, view assignment and update assignment.
 - They will see the login and registration form on the login and registration page.
+
+  Project website link: https://zingy-stroopwafel-76030e.netlify.app/

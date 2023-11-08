@@ -10,7 +10,7 @@ const Assignment = () => {
     const [assignments, setAssignments] = useState([]);
     const [value, setValue] = useState('Easy');
     const [event, setEvent] = useState([])
-    const [itemPerPage, setItemPerPage] = useState(3);
+    const [itemPerPage, setItemPerPage] = useState(5);
     const numberOfPage = Math.ceil(assignments.length / itemPerPage);
     const [currentPage, setCurrentPage] = useState(0);
     
@@ -82,7 +82,7 @@ const Assignment = () => {
                 ></AssignmentCard>)
             }
             </div>
-            <div className="mt-14">
+            <div className="mt-14 mb-10">
             <p className=" text-xl font-medium text-center">Current Page: {currentPage}</p>
             <div className="flex justify-center items-center mt-2">
             <button className="btn mr-4" onClick={handlePrevPage}>Prev</button>
