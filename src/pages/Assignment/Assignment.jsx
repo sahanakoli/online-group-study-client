@@ -1,28 +1,63 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import {  useEffect, useState } from "react";
 import Navbar from "../../Sheard/Navbar";
 import AssignmentCard from "./AssignmentCard";
 import axios from "axios";
 
+
 const Assignment = () => {
     const [assignments, setAssignments] = useState([]);
-    // const [itemPerPage, setItemPerPage] = useState(5);
-    // const numberOfPage = Math.ceil(assignments / itemPerPage);
+    const [value, setValue] = useState('Easy');
+    const [event, setEvent] = useState([])
+    const [itemPerPage, setItemPerPage] = useState(3);
+    const numberOfPage = Math.ceil(assignments.length / itemPerPage);
+    const [currentPage, setCurrentPage] = useState(0);
+    
+    const pages = [...Array(numberOfPage).keys()];
 
-    // const pages = [...Array(numberOfPage).keys()];
-
-    const url = 'https://online-group-study-server.vercel.app/assignments'
+    const url = `https://online-group-study-server.vercel.app/assignments?page=${currentPage}`
     useEffect(() =>{
         axios.get(url, {withCredentials: true})
         .then(res => {
             setAssignments(res.data);
+            setEvent(res.data)
         })
-    }, [])
+    }, [currentPage])
     
     
     const handleValue = (event) =>{
-        event.target.value
-        const level = assignments.filter(assign => assign.level == event.target.value);
-        setAssignments(level);
+        
+        
+        
+        setValue(event.target.value)
+    }
+    useEffect(() =>{
+        const level = assignments.filter(assign => assign.level == value);
+        console.log(level)
+        setEvent(level);
+
+    }, [value])
+    console.log(value)
+
+    const handleItemPerPage = e =>{
+
+        const val = parseInt(e.target.value);
+        console.log(val);
+        setItemPerPage(val);
+        setCurrentPage(0);
+    }
+
+    const handlePrevPage = () =>{
+        if(currentPage > 0){
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () =>{
+        if(currentPage < pages.length){
+            setCurrentPage(currentPage + 1);
+        }
     }
     return (
         <div>
@@ -39,7 +74,7 @@ const Assignment = () => {
                         </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {
-                assignments.map(assignment =><AssignmentCard 
+                event.map(assignment =><AssignmentCard 
                 key={assignment.id} 
                 assignment={assignment}
                 assignments={assignments}
@@ -47,11 +82,23 @@ const Assignment = () => {
                 ></AssignmentCard>)
             }
             </div>
-            {/* <div className="">
+            <div className="mt-14">
+            <p className=" text-xl font-medium text-center">Current Page: {currentPage}</p>
+            <div className="flex justify-center items-center mt-2">
+            <button className="btn mr-4" onClick={handlePrevPage}>Prev</button>
                 {
-                    pages.map(page => <button key={page}>{page}</button>)
+                    pages.map(page => <button
+                      onClick={() => setCurrentPage(page)}  
+                    className="btn mr-2"  
+                    key={page}>
+                    {page}</button>)
                 }
-            </div> */}
+                <button className="btn mr-2" onClick={handleNextPage}>Next</button>
+                <select className="btn" value={itemPerPage}  name="" id="">
+                    <option value="5">5</option>
+                </select>
+            </div>
+            </div>
         </div>
     );
 };

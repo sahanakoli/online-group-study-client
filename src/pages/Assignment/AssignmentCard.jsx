@@ -46,7 +46,7 @@ const AssignmentCard = ({ assignment,assignments,setAssignments }) => {
                 <div className="card-body">
                 <h2 className="card-title text-xl font-bold">Title: {title}</h2>
                 <p className="text-xl font-semibold">Marks: {marks}</p>
-                <p className="text-lg font-medium">Date: {date}</p>
+                <p className="text-lg font-medium">Due Date: {date}</p>
                 <p className="text-lg font-medium">Level: {level}</p>
                 <div className="card-actions justify-center">
                         <Link to={`/view/${_id}`}><button className="btn bg-[#B68C5A] text-white">View</button></Link>

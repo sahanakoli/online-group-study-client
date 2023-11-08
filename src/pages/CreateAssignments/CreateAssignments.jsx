@@ -91,7 +91,7 @@ const CreateAssignments = () => {
                         <label className="label">
                                 <span className="label-text">Level</span>
                             </label>
-                            <select type="text" name="level"  className="input w-full input-bordered">
+                            <select type="text" name="level"  className="input w-full input-bordered " required>
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
                                 <option value="hard">Hard</option>

@@ -5,7 +5,7 @@ const SubmittedAssignments = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <h2 className=" text-5xl">Submitted Assignments</h2>
+            <h2 className=" text-3xl font-semibold text-center mt-10">Submitted Assignments</h2>
         </div>
     );
 };
