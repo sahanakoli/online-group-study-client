@@ -40,7 +40,7 @@ const View = () => {
                                     <div className="modal-action">
                                         <form method="dialog">
                                             {/* if there is a button in form, it will close the modal */}
-                                            <button className="btn">Submit</button>
+                                            <button   className="btn">Submit</button>
                                         </form>
                                     </div>
                                 </div>
